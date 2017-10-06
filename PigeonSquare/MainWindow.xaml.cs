@@ -32,8 +32,8 @@ namespace PigeonSquare
             Dessine();
             dt.Start();
 
-            Thread tt = new Thread(App.env.Avance);
-            tt.Start();
+           /* Thread tt = new Thread(App.env.Avance);
+            tt.Start();*/
             Dessine();
         }
         private void Redessine_Tick(object sender, EventArgs e)
@@ -85,15 +85,18 @@ namespace PigeonSquare
                 Console.WriteLine("test");
                 Console.WriteLine("Colonne : " + e.GetPosition(Plateau).Y.ToString());
                 Console.WriteLine("ligne : " + e.GetPosition(Plateau).X.ToString());
-                Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).Y).ToString());
-                Console.WriteLine("ligne : " + RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).X).ToString());
-            AjouteNourriture(ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).Y), ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X));
+                Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X).ToString());
+                Console.WriteLine("ligne : " + RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y).ToString());
+         
+            double test1 = ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X);
+            double test2 = RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y);
+            AjouteNourriture(test1,test2);
                 
 
         }
         private void AjouteNourriture(double Y,double X)
         {
-            App.env.listn.Add(new Nourriture(Y, X));
+            App.env.listn.Add(new Nourriture(X, Y));
         }
         private double ColumnComputation(ColumnDefinitionCollection c, double YPosition)
         {
