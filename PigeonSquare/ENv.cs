@@ -22,9 +22,9 @@ namespace PigeonSquare
             
             this.DimensionX = _dimensionX;
             this.DimensionY = _dimensionY;
-            Pigeon p1 = new Pigeon();
-            Pigeon p2 = new Pigeon();
-            Pigeon p3 = new Pigeon();
+            Pigeon p1 = new Pigeon("p1");
+            Pigeon p2 = new Pigeon("p2");
+            Pigeon p3 = new Pigeon("p3");
             listp.Add(p1);
             listp.Add(p2);
             listp.Add(p3);

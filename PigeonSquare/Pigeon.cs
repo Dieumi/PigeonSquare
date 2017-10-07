@@ -13,12 +13,14 @@ namespace PigeonSquare
     {
         public static Random Hazard = new Random();
         Thread thread;
+        public string nom;
         public int X { get; set; }
         public int Y { get; set; }
         public StrategieAbstraite StrategieCourante;
         public Nourriture target;
-        public Pigeon()
+        public Pigeon(string nom)
         {
+            this.nom = nom;
             StrategieCourante = new Immobile("immobile");
             X = Hazard.Next(1, 20);
             Y = Hazard.Next(1, 20);
@@ -64,7 +66,12 @@ namespace PigeonSquare
         }
         public void mange()
         {
-            target.etat = false;
+            if (target.etat == true)
+            {
+                target.etat = false;
+                Console.WriteLine(this.nom + " a mangé");
+            }
+           
             
         }
     }
