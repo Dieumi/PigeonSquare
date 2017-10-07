@@ -11,8 +11,10 @@ namespace PigeonSquare
 {
    public class Pigeon : Observateur
     {
+
+    
         public static Random Hazard = new Random();
-        Thread thread;
+       
         public string nom;
         public int X { get; set; }
         public int Y { get; set; }
@@ -24,12 +26,9 @@ namespace PigeonSquare
             StrategieCourante = new Immobile("immobile");
             X = Hazard.Next(1, 20);
             Y = Hazard.Next(1, 20);
-            thread = new Thread(new ThreadStart(this.RunThread));
+            //thread = new Thread(new ThreadStart(this.RunThread));
         }
-        public void RunThread()
-        {
-           
-        }
+        
         public void Avance1Tour(int dimX, int dimY)
         {
             

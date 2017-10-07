@@ -22,13 +22,24 @@ namespace PigeonSquare
             
             this.DimensionX = _dimensionX;
             this.DimensionY = _dimensionY;
-            Pigeon p1 = new Pigeon("p1");
-            Pigeon p2 = new Pigeon("p2");
-            Pigeon p3 = new Pigeon("p3");
-            listp.Add(p1);
-            listp.Add(p2);
-            listp.Add(p3);
+            Thread t1 = new Thread(createPigeon);
+            Thread t2 = new Thread(createPigeon);
+            Thread t3 = new Thread(createPigeon);
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            /* Pigeon p1 = new Pigeon("p1");
+             Pigeon p2 = new Pigeon("p2");
+             Pigeon p3 = new Pigeon("p3");
+             listp.Add(p1);
+             listp.Add(p2);
+             listp.Add(p3);*/
 
+        }
+        public void createPigeon()
+        {
+            Pigeon p1 = new Pigeon("p"+listp.Count);
+            listp.Add(p1);
         }
         public void TourSuivant()
         {
