@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StrategieAbstraite.cs" />
+    <Compile Include="Strategie\Faim.cs" />
+    <Compile Include="Strategie\Fuite.cs" />
+    <Compile Include="Strategie\Immobile.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +67,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Env.cs" />
+    <Compile Include="Interface\Observateur.cs" />
+    <Compile Include="Interface\Sujet.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

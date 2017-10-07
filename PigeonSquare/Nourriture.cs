@@ -8,7 +8,7 @@ namespace PigeonSquare
 {
     public class Nourriture
     {
-        bool etat;
+        public bool etat;
         public double Y { get; set; }
         public double X { get; set; }
         public Nourriture(double x, double y)

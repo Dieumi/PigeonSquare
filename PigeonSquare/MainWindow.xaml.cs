@@ -32,8 +32,8 @@ namespace PigeonSquare
             Dessine();
             dt.Start();
 
-           /* Thread tt = new Thread(App.env.Avance);
-            tt.Start();*/
+            Thread tt = new Thread(App.env.Avance);
+            tt.Start();
             Dessine();
         }
         private void Redessine_Tick(object sender, EventArgs e)
@@ -62,16 +62,25 @@ namespace PigeonSquare
             }
             foreach (Nourriture n in App.env.listn)
             {
-                Image obj = new Image();
 
-                Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
-                obj.Source = new BitmapImage(urib);
+                if (n.etat == false)
+                {
+                    App.env.notify();
+                }
+                else
+                {
+                    Image obj = new Image();
+
+                    Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
+                    obj.Source = new BitmapImage(urib);
 
 
 
-                Plateau.Children.Add(obj);
-                Grid.SetColumn(obj, Convert.ToInt32(n.Y));
-                Grid.SetRow(obj, Convert.ToInt32(n.X));
+                    Plateau.Children.Add(obj);
+                    Grid.SetColumn(obj, Convert.ToInt32(n.Y));
+                    Grid.SetRow(obj, Convert.ToInt32(n.X));
+                }
+               
 
             }
 
@@ -97,6 +106,7 @@ namespace PigeonSquare
         private void AjouteNourriture(double Y,double X)
         {
             App.env.listn.Add(new Nourriture(X, Y));
+            App.env.notify();
         }
         private double ColumnComputation(ColumnDefinitionCollection c, double YPosition)
         {

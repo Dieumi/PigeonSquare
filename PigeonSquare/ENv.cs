@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PigeonSquare.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace PigeonSquare
 {
-    public class Env
+    public class Env : Sujet
     {
         public static Random Hazard = new Random();
         public int DimensionX { get; set; }
         public int DimensionY { get; set; }
         public int vitesse = 500;
+        
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
         public Env(int _dimensionX, int _dimensionY)
@@ -30,7 +32,11 @@ namespace PigeonSquare
         }
         public void TourSuivant()
         {
-
+            foreach(Pigeon p in listp)
+            {
+                p.Avance1Tour(p.X, p.Y);
+            }
+         
             if (Hazard.Next(1, 11) >= 5)
             {
                //HumainPassage();
@@ -42,13 +48,33 @@ namespace PigeonSquare
        
         public void Avance()
         {
-            /*while (true)
+            while (true)
             {
                 Thread.Sleep(vitesse);
                 TourSuivant();
-            }*/
+            }
 
 
         }
+
+        public void add(Pigeon p)
+        {
+            listp.Add(p);
+        }
+
+        public void remove(Pigeon p)
+        {
+            listp.Remove(p);
+        }
+
+        public void notify()
+        {
+            foreach(Pigeon p in listp)
+            {
+                p.maj(listn);
+            }
+        }
+
+    
     }
 }
