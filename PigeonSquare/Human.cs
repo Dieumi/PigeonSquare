@@ -18,6 +18,17 @@ namespace PigeonSquare
             Y = y;
         }
 
+        public void marcheAndDestroy()
+        {
+            if (Y <= 20)
+            {
+                Y++;
+            }
+            else
+            {
+               etat = false;
+            }
+        }
 
     }
 }

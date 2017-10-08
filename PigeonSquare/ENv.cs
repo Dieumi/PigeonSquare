@@ -48,6 +48,11 @@ namespace PigeonSquare
             {
                 p.Avance1Tour(p.X, p.Y);
             }
+
+            foreach(Human h in listh)
+            {
+                h.marcheAndDestroy();
+            }
          
             if (Hazard.Next(1, 11) >= 10)
             {
