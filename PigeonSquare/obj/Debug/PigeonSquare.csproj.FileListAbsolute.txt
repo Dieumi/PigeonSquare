@@ -13,3 +13,17 @@ D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.
 D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csproj.CoreCompileInputs.cache
 D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.exe
 D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.pdb
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.exe.config
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.exe
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.pdb
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csprojResolveAssemblyReference.cache
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\MainWindow.g.cs
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\App.g.cs
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare_MarkupCompile.cache
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare_MarkupCompile.lref
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\MainWindow.baml
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.g.resources
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.Properties.Resources.resources
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csproj.GenerateResource.Cache
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.exe
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.pdb
