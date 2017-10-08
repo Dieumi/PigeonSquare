@@ -1,0 +1,3 @@
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Release\MainWindow.g.cs
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Release\PigeonSquare_MarkupCompile.cache
+C:\Users\Papouboy\Source\Repos\PigeonSquare\PigeonSquare\obj\Release\PigeonSquare_MarkupCompile.lref
