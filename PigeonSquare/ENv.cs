@@ -17,6 +17,7 @@ namespace PigeonSquare
         
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
+        public List<Human> listh = new List<Human>();
         public Env(int _dimensionX, int _dimensionY)
         {
             
@@ -48,15 +49,22 @@ namespace PigeonSquare
                 p.Avance1Tour(p.X, p.Y);
             }
          
-            if (Hazard.Next(1, 11) >= 5)
+            if (Hazard.Next(1, 11) >= 10)
             {
-               //HumainPassage();
+               HumainPassage();
             }
             
 
 
         }
-       
+
+        private void HumainPassage()
+        {
+            Human h1 = new Human(Hazard.Next(0,20), Hazard.Next(0,20));
+            listh.Add(h1);
+            Console.WriteLine("ligne : "+h1.X+" colonne : "+h1.Y);
+        }
+
         public void Avance()
         {
             while (true)
@@ -83,6 +91,7 @@ namespace PigeonSquare
             foreach(Pigeon p in listp)
             {
                 p.maj(listn);
+                p.maj(listh);
             }
         }
 

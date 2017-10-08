@@ -20,6 +20,7 @@ namespace PigeonSquare
         public int Y { get; set; }
         public StrategieAbstraite StrategieCourante;
         public Nourriture target;
+        public Human target2;
         public Pigeon(string nom)
         {
             this.nom = nom;
@@ -63,6 +64,31 @@ namespace PigeonSquare
            
             
         }
+
+        public void maj(List<Human> listh)
+        {
+            if (target == null)
+            {
+                foreach (Human h in listh)
+                {
+                    if (h.etat != false)
+                    {
+                        //StrategieCourante = new Fuite("fuite");
+                        target2 = h;
+                        break;
+                    }
+
+                };
+            }
+            else if (target.etat == false)
+            {
+                StrategieCourante = new Immobile("Immobile");
+                target = null;
+            }
+
+        }
+
+
         public void mange()
         {
             if (target.etat == true)

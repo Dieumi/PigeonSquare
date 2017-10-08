@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Human.cs" />
     <Compile Include="StrategieAbstraite.cs" />
     <Compile Include="Strategie\Faim.cs" />
     <Compile Include="Strategie\Fuite.cs" />
@@ -107,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\cookie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\human.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

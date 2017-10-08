@@ -83,10 +83,24 @@ namespace PigeonSquare
                
 
             }
+            foreach (Human h in App.env.listh)
+            {
+                if (h.etat == false)
+                {
+                    App.env.notify();
+                }
+                else
+                {
+                    Image obj = new Image();
 
-
-
-
+                    Uri urib = new Uri("img/human.jpg", UriKind.Relative);
+                    obj.Source = new BitmapImage(urib);
+                    
+                    Plateau.Children.Add(obj);
+                    Grid.SetColumn(obj, Convert.ToInt32(h.Y));
+                    Grid.SetRow(obj, Convert.ToInt32(h.X));
+                }
+            }
         }
         private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
