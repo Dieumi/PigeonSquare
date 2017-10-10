@@ -44,28 +44,24 @@ namespace PigeonSquare
          }*/
         public void maj(List<Nourriture> listn)
         {
-            if (target == null)
+            foreach (Nourriture n in listn)
             {
-                foreach(Nourriture n in listn)
+                if (n.etat == true && n.avarie == false)
                 {
-                    if (n.etat != false)
-                    {
-                        StrategieCourante = new Faim("faim");
-                        target = n;
-                        break;
-                    }
-                    
-                };
-            }else if (target.etat == false)
-            {
-                StrategieCourante = new Immobile("Immobile");
-                target = null;
+                    StrategieCourante = new Faim("faim");
+                    target = n;
+                    break;
+                }
+                else if (n.etat== false || n.avarie == true)
+                {
+                    StrategieCourante = new Immobile("Immobile");
+                    target = null;
+                }
             }
-           
-            
         }
 
-        public void maj(List<Human> listh)
+
+                public void maj(List<Human> listh)
         {
             if (target == null)
             {

@@ -62,27 +62,39 @@ namespace PigeonSquare
             }
             foreach (Nourriture n in App.env.listn)
             {
-
-                if (n.etat == false)
+                if (n.etat)
                 {
-                    App.env.notify();
+                    if (!n.avarie)
+                    {
+                        Image obj = new Image();
+
+                        Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
+                        obj.Source = new BitmapImage(urib);
+
+                        Plateau.Children.Add(obj);
+                        Grid.SetColumn(obj, Convert.ToInt32(n.Y));
+                        Grid.SetRow(obj, Convert.ToInt32(n.X));
+                  
+                    }
+                    else
+                    {
+                        Image obj = new Image();
+
+                        Uri urib = new Uri("img/cookieAvarié.jpg", UriKind.Relative);
+                        obj.Source = new BitmapImage(urib);
+
+                        Plateau.Children.Add(obj);
+                        Grid.SetColumn(obj, Convert.ToInt32(n.Y));
+                        Grid.SetRow(obj, Convert.ToInt32(n.X));
+                        App.env.notify();//envoi de notification si avarie est a true
+                    }
                 }
                 else
                 {
-                    Image obj = new Image();
-
-                    Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
-                    obj.Source = new BitmapImage(urib);
-
-
-
-                    Plateau.Children.Add(obj);
-                    Grid.SetColumn(obj, Convert.ToInt32(n.Y));
-                    Grid.SetRow(obj, Convert.ToInt32(n.X));
+                    App.env.notify();//envoi de notification si etat est a false
                 }
-               
-
             }
+
             foreach (Human h in App.env.listh)
             {
                 if (h.etat == false)
@@ -104,8 +116,6 @@ namespace PigeonSquare
         }
         private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
-                Console.WriteLine("test");
                 Console.WriteLine("Colonne : " + e.GetPosition(Plateau).Y.ToString());
                 Console.WriteLine("ligne : " + e.GetPosition(Plateau).X.ToString());
                 Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X).ToString());

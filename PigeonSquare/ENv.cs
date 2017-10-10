@@ -13,29 +13,24 @@ namespace PigeonSquare
         public static Random Hazard = new Random();
         public int DimensionX { get; set; }
         public int DimensionY { get; set; }
-        public int vitesse = 500;
-        
+        public int vitesse = 500; // vitesse d'exécution du thread
+        const int  HUMAIN_APPARITION = 25;//probabilité d'apparaition de l'humain
+
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
         public List<Human> listh = new List<Human>();
+        //Listes contenant les pigeons,les cookies et les humains
         public Env(int _dimensionX, int _dimensionY)
         {
             
             this.DimensionX = _dimensionX;
             this.DimensionY = _dimensionY;
-            Thread t1 = new Thread(createPigeon);
+            Thread t1 = new Thread(createPigeon);//pour chaque pigon créé, on créer un thread correspondant
             Thread t2 = new Thread(createPigeon);
             Thread t3 = new Thread(createPigeon);
             t1.Start();
             t2.Start();
             t3.Start();
-            /* Pigeon p1 = new Pigeon("p1");
-             Pigeon p2 = new Pigeon("p2");
-             Pigeon p3 = new Pigeon("p3");
-             listp.Add(p1);
-             listp.Add(p2);
-             listp.Add(p3);*/
-
         }
         public void createPigeon()
         {
@@ -54,7 +49,7 @@ namespace PigeonSquare
                 h.marcheAndDestroy();
             }
          
-            if (Hazard.Next(1, 11) >= 10)
+            if (Hazard.Next(1, 30) >= HUMAIN_APPARITION)
             {
                HumainPassage();
             }
@@ -96,7 +91,7 @@ namespace PigeonSquare
             foreach(Pigeon p in listp)
             {
                 p.maj(listn);
-                p.maj(listh);
+               // p.maj(listh);
             }
         }
 

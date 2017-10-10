@@ -112,5 +112,8 @@
   <ItemGroup>
     <Resource Include="img\human.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cookieAvarié.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
