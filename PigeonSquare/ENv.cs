@@ -14,7 +14,8 @@ namespace PigeonSquare
         public int DimensionX { get; set; }
         public int DimensionY { get; set; }
         public int vitesse = 500; // vitesse d'exécution du thread
-        const int  HUMAIN_APPARITION = 25;//probabilité d'apparaition de l'humain
+
+        const int  HUMAIN_APPARITION = 5;//probabilité d'apparaition de l'humain en pourcentage %
 
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
@@ -34,7 +35,7 @@ namespace PigeonSquare
         }
         public void createPigeon()
         {
-            Pigeon p1 = new Pigeon("p"+listp.Count);
+            Pigeon p1 = new Pigeon("p" + listp.Count);
             listp.Add(p1);
         }
         public void TourSuivant()
@@ -49,7 +50,7 @@ namespace PigeonSquare
                 h.marcheAndDestroy();
             }
          
-            if (Hazard.Next(1, 30) >= HUMAIN_APPARITION)
+            if (Hazard.Next(1, 100) <= HUMAIN_APPARITION)
             {
                HumainPassage();
             }
@@ -62,7 +63,6 @@ namespace PigeonSquare
         {
             Human h1 = new Human(Hazard.Next(0,20), Hazard.Next(0,20));
             listh.Add(h1);
-            Console.WriteLine("ligne : "+h1.X+" colonne : "+h1.Y);
         }
 
         public void Avance()
@@ -90,8 +90,9 @@ namespace PigeonSquare
         {
             foreach(Pigeon p in listp)
             {
+                p.Detection(listh);
                 p.maj(listn);
-               // p.maj(listh);
+                p.maj(listh);
             }
         }
 

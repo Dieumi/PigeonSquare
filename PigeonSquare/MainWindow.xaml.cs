@@ -56,6 +56,7 @@ namespace PigeonSquare
                   
                 
                 Plateau.Children.Add(obj);
+
                 Grid.SetColumn(obj, p.Y);
                 Grid.SetRow(obj, p.X);
 
@@ -111,16 +112,17 @@ namespace PigeonSquare
                     Plateau.Children.Add(obj);
                     Grid.SetColumn(obj, Convert.ToInt32(h.Y));
                     Grid.SetRow(obj, Convert.ToInt32(h.X));
+                    App.env.notify();
                 }
             }
         }
         private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
+        {/*
                 Console.WriteLine("Colonne : " + e.GetPosition(Plateau).Y.ToString());
                 Console.WriteLine("ligne : " + e.GetPosition(Plateau).X.ToString());
                 Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X).ToString());
                 Console.WriteLine("ligne : " + RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y).ToString());
-         
+         */
             double test1 = ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X);
             double test2 = RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y);
             AjouteNourriture(test1,test2);

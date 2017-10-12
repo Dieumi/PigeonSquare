@@ -18,9 +18,12 @@ namespace PigeonSquare
         public string nom;
         public int X { get; set; }
         public int Y { get; set; }
+        public bool detecte;
         public StrategieAbstraite StrategieCourante;
         public Nourriture target;
         public Human target2;
+
+        public const int RANGE = 2;
         public Pigeon(string nom)
         {
             this.nom = nom;
@@ -32,23 +35,39 @@ namespace PigeonSquare
         
         public void Avance1Tour(int dimX, int dimY)
         {
-            
-           
-            this.StrategieCourante.Deplacement(dimX, dimY,this);
-            
+            this.StrategieCourante.Deplacement(dimX, dimY,this); 
         }
-        /* public Nourriture closest(Nourriture n1,Nourriture n2)
+        /* public  void Nourriture closest(Nourriture n1,Nourriture n2)
          {
 
 
-         }*/
+         }
+         */
+
+        public void Detection(List<Human> listh)
+        {
+            foreach (Human h in listh)
+            {
+                if (Math.Abs(h.X - X) <= RANGE || Math.Abs(h.X + X) <= RANGE || Math.Abs(h.Y-Y) <= RANGE || Math.Abs(h.Y+Y) <= RANGE)
+                {
+                    detecte = true;
+                }
+                else
+                {
+                    detecte = false;
+                }
+            }
+        }
+
+
+
         public void maj(List<Nourriture> listn)
         {
             foreach (Nourriture n in listn)
             {
                 if (n.etat == true && n.avarie == false)
                 {
-                    StrategieCourante = new Faim("faim");
+                    StrategieCourante = new Faim("Faim");
                     target = n;
                     break;
                 }
@@ -61,29 +80,30 @@ namespace PigeonSquare
         }
 
 
-                public void maj(List<Human> listh)
+        public void maj(List<Human> listh)//tant que des hulains sont présent, les mouvement sont impossible
         {
-            if (target == null)
-            {
+
                 foreach (Human h in listh)
                 {
                     if (h.etat != false)
                     {
-                        //StrategieCourante = new Fuite("fuite");
-                        target2 = h;
-                        break;
+                        if (detecte)
+                        {
+                            StrategieCourante = new Fuite("fuite");
+                            target2 = h;
+                            break;
+                        }
+                        else
+                        {
+                            StrategieCourante = new Immobile("Immobile");
+                            target2 = null;
+                            break;
+                        }
                     }
-
-                };
-            }
-            else if (target.etat == false)
-            {
-                StrategieCourante = new Immobile("Immobile");
-                target = null;
-            }
-
+                }
+          
+            
         }
-
 
         public void mange()
         {
