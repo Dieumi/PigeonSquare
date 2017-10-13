@@ -14,8 +14,8 @@ namespace PigeonSquare
         public int DimensionX { get; set; }
         public int DimensionY { get; set; }
         public int vitesse = 500; // vitesse d'exécution du thread
-
-        const int  HUMAIN_APPARITION = 5;//probabilité d'apparaition de l'humain en pourcentage %
+        public int i = 0;
+        const int  HUMAIN_APPARITION = 1;//probabilité d'apparaition de l'humain en pourcentage %
 
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
@@ -27,15 +27,16 @@ namespace PigeonSquare
             this.DimensionX = _dimensionX;
             this.DimensionY = _dimensionY;
             Thread t1 = new Thread(createPigeon);//pour chaque pigon créé, on créer un thread correspondant
-            Thread t2 = new Thread(createPigeon);
-            Thread t3 = new Thread(createPigeon);
             t1.Start();
+            Thread t2 = new Thread(createPigeon);
             t2.Start();
+            Thread t3 = new Thread(createPigeon);
             t3.Start();
         }
         public void createPigeon()
         {
-            Pigeon p1 = new Pigeon("p" + listp.Count);
+            i++;
+            Pigeon p1 = new Pigeon("p" + i);
             listp.Add(p1);
         }
         public void TourSuivant()
