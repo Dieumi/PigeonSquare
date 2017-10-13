@@ -37,20 +37,35 @@ namespace PigeonSquare
         {
             this.StrategieCourante.Deplacement(dimX, dimY,this); 
         }
-        /* public  void Nourriture closest(Nourriture n1,Nourriture n2)
-         {
-
-
-         }
-         */
-
-        public void closest(List<Nourriture> listn)
+     
+        private static double Pow2(double x)
         {
-            foreach(Nourriture n in listn)
-            {
-                
-            }
+            return x * x;
         }
+
+        private static double Distance2(Pigeon p1, Nourriture n2)
+        {
+            return Pow2(n2.X - p1.X) + Pow2(n2.Y - p1.Y);
+        }
+
+        private static Nourriture closest(Pigeon p1, List<Nourriture> listn)
+        {
+            Nourriture closest = null;
+            double minDist2 = double.MaxValue;
+            foreach (Nourriture n in listn)
+            {
+                double dist2 = Distance2(p1,n);
+                if (dist2 < minDist2)
+                {
+                    minDist2 = dist2;
+                    closest = n;
+                }
+            }
+            return closest;
+        }
+
+
+      
         public void Detection(List<Human> listh)
         {
             foreach (Human h in listh)
@@ -72,17 +87,36 @@ namespace PigeonSquare
         {
             foreach (Nourriture n in listn)
             {
-                if (n.etat == true && n.avarie == false)
+                if (target == null)
                 {
-                    StrategieCourante = new Faim("Faim");
-                    target = n;
-                    break;
+                    if (n.etat == true && n.avarie == false)
+                    {
+                        StrategieCourante = new Faim("Faim");
+                        target = n;
+                        break;
+                    }
+                    else if (n.etat == false || n.avarie == true)
+                    {
+                        StrategieCourante = new Immobile("Immobile");
+                        target = null;
+                    }
                 }
-                else if (n.etat== false || n.avarie == true)
+                else
                 {
-                    StrategieCourante = new Immobile("Immobile");
-                    target = null;
+                    Nourriture nearest=closest(this, listn);
+                    if (nearest.etat == true && nearest.avarie == false)
+                    {
+                        StrategieCourante = new Faim("Faim");
+                        target = nearest;
+                        break;
+                    }
+                    else if (nearest.etat == false || nearest.avarie == true)
+                    {
+                        StrategieCourante = new Immobile("Immobile");
+                        target = null;
+                    }
                 }
+                
             }
         }
 
