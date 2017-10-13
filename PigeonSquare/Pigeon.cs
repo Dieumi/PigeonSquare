@@ -44,6 +44,13 @@ namespace PigeonSquare
          }
          */
 
+        public void closest(List<Nourriture> listn)
+        {
+            foreach(Nourriture n in listn)
+            {
+                
+            }
+        }
         public void Detection(List<Human> listh)
         {
             foreach (Human h in listh)

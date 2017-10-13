@@ -15,7 +15,8 @@ namespace PigeonSquare.Strategie
 
         public override void Deplacement(int dimX, int dimY, Pigeon unPerso)
         {
- 
+
+            Console.WriteLine(unPerso.nom + "se deplace");
             if (unPerso.target.X != unPerso.X)
                  {
                      if (unPerso.target.X > unPerso.X)
