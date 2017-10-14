@@ -23,7 +23,7 @@ namespace PigeonSquare
         public Nourriture target;
         public Human target2;
 
-        public const int RANGE = 2;
+        public const int RANGE = 4;
         public Pigeon(string nom)
         {
             this.nom = nom;
@@ -47,7 +47,10 @@ namespace PigeonSquare
         {
             return Pow2(n2.X - p1.X) + Pow2(n2.Y - p1.Y);
         }
-
+        private static double Distance2Human(Pigeon p1, Human n2)
+        {
+            return Pow2(n2.X - p1.X) + Pow2(n2.Y - p1.Y);
+        }
         private static Nourriture closest(Pigeon p1, List<Nourriture> listn)
         {
             Nourriture closest = null;
@@ -70,14 +73,11 @@ namespace PigeonSquare
         {
             foreach (Human h in listh)
             {
-                if (Math.Abs(h.X - X) <= RANGE || Math.Abs(h.X + X) <= RANGE || Math.Abs(h.Y-Y) <= RANGE || Math.Abs(h.Y+Y) <= RANGE)
+                if (h.etat)
                 {
-                    detecte = true;
+                   
                 }
-                else
-                {
-                    detecte = false;
-                }
+               
             }
         }
 
@@ -128,18 +128,27 @@ namespace PigeonSquare
                 {
                     if (h.etat != false)
                     {
-                        if (detecte)
+                        double dist = Math.Sqrt(Distance2Human(this, h));
+                        if (dist <= RANGE)
                         {
-                            StrategieCourante = new Fuite("fuite");
-                            target2 = h;
-                            break;
+                            detecte = true;
                         }
                         else
                         {
+                            detecte = false;
+                        }
+                    if (detecte)
+                        {
+                            StrategieCourante = new Fuite("fuite");
+                            target2 = h;
+                           // break;
+                        }
+                       /* else
+                        {
                             StrategieCourante = new Immobile("Immobile");
                             target2 = null;
-                            break;
-                        }
+                           // break;
+                        }*/
                     }
                 }
           

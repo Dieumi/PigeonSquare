@@ -87,20 +87,20 @@ namespace PigeonSquare
                         Plateau.Children.Add(obj);
                         Grid.SetColumn(obj, Convert.ToInt32(n.Y));
                         Grid.SetRow(obj, Convert.ToInt32(n.X));
-                        App.env.notify();//envoi de notification si avarie est a true
+                     //   App.env.notify();//envoi de notification si avarie est a true
                     }
                 }
-                else
+               /* else
                 {
                     App.env.notify();//envoi de notification si etat est a false
-                }
+                }*/
             }
 
             foreach (Human h in App.env.listh)
             {
                 if (h.etat == false)
                 {
-                    App.env.notify();
+                   
                 }
                 else
                 {
