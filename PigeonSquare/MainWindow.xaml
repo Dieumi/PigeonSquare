@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PigeonSquare"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Name="Plateau" ShowGridLines="True" PreviewMouseLeftButtonDown="OnPreviewMouseLeftButtonDown">
-        
+        Title="MainWindow" Height="700" Width="700">
+    <Grid Name="Plateau" ShowGridLines="True" Background="Transparent" MouseRightButtonUp="OnPreviewMouseLeftButtonDown" >
+
+
     </Grid>
 </Window>

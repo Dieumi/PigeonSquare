@@ -56,44 +56,83 @@ namespace PigeonSquare
                   
                 
                 Plateau.Children.Add(obj);
+
                 Grid.SetColumn(obj, p.Y);
                 Grid.SetRow(obj, p.X);
 
             }
             foreach (Nourriture n in App.env.listn)
             {
-                Image obj = new Image();
+                if (n.etat)
+                {
+                    if (!n.avarie)
+                    {
+                        Image obj = new Image();
 
-                Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
-                obj.Source = new BitmapImage(urib);
+                        Uri urib = new Uri("img/cookie.jpg", UriKind.Relative);
+                        obj.Source = new BitmapImage(urib);
 
+                        Plateau.Children.Add(obj);
+                        Grid.SetColumn(obj, Convert.ToInt32(n.Y));
+                        Grid.SetRow(obj, Convert.ToInt32(n.X));
+                  
+                    }
+                    else
+                    {
+                        Image obj = new Image();
 
+                        Uri urib = new Uri("img/cookieAvarié.jpg", UriKind.Relative);
+                        obj.Source = new BitmapImage(urib);
 
-                Plateau.Children.Add(obj);
-                Grid.SetColumn(obj, Convert.ToInt32(n.Y));
-                Grid.SetRow(obj, Convert.ToInt32(n.X));
-
+                        Plateau.Children.Add(obj);
+                        Grid.SetColumn(obj, Convert.ToInt32(n.Y));
+                        Grid.SetRow(obj, Convert.ToInt32(n.X));
+                     //   App.env.notify();//envoi de notification si avarie est a true
+                    }
+                }
+               /* else
+                {
+                    App.env.notify();//envoi de notification si etat est a false
+                }*/
             }
 
+            foreach (Human h in App.env.listh)
+            {
+                if (h.etat == false)
+                {
+                   
+                }
+                else
+                {
+                    Image obj = new Image();
 
-
-
+                    Uri urib = new Uri("img/human.jpg", UriKind.Relative);
+                    obj.Source = new BitmapImage(urib);
+                    
+                    Plateau.Children.Add(obj);
+                    Grid.SetColumn(obj, Convert.ToInt32(h.Y));
+                    Grid.SetRow(obj, Convert.ToInt32(h.X));
+                    App.env.notify();
+                }
+            }
         }
         private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-                Console.WriteLine("test");
+        {/*
                 Console.WriteLine("Colonne : " + e.GetPosition(Plateau).Y.ToString());
                 Console.WriteLine("ligne : " + e.GetPosition(Plateau).X.ToString());
-                Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).Y).ToString());
-                Console.WriteLine("ligne : " + RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).X).ToString());
-            AjouteNourriture(ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).Y), ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X));
+                Console.WriteLine("Colonne : " + ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X).ToString());
+                Console.WriteLine("ligne : " + RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y).ToString());
+         */
+            double test1 = ColumnComputation(Plateau.ColumnDefinitions, e.GetPosition(Plateau).X);
+            double test2 = RowComputation(Plateau.RowDefinitions, e.GetPosition(Plateau).Y);
+            AjouteNourriture(test1,test2);
                 
 
         }
         private void AjouteNourriture(double Y,double X)
         {
-            App.env.listn.Add(new Nourriture(Y, X));
+            App.env.listn.Add(new Nourriture(X, Y));
+            App.env.notify();
         }
         private double ColumnComputation(ColumnDefinitionCollection c, double YPosition)
         {
