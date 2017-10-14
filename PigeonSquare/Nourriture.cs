@@ -13,7 +13,7 @@ namespace PigeonSquare
         public bool avarie;
         public double Y { get; set; }
         public double X { get; set; }
-        private const int TIME_CONSERVE = 5000; //temps de conservation des cookies (ms)
+        private const int TIME_CONSERVE = 8000; //temps de conservation des cookies (ms)
         Timer timer = new Timer(TIME_CONSERVE);
 
         public Nourriture(double x, double y)

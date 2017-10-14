@@ -69,17 +69,7 @@ namespace PigeonSquare
 
 
       
-        public void Detection(List<Human> listh)
-        {
-            foreach (Human h in listh)
-            {
-                if (h.etat)
-                {
-                   
-                }
-               
-            }
-        }
+       
 
 
 
@@ -141,14 +131,9 @@ namespace PigeonSquare
                         {
                             StrategieCourante = new Fuite("fuite");
                             target2 = h;
-                           // break;
+                           
                         }
-                       /* else
-                        {
-                            StrategieCourante = new Immobile("Immobile");
-                            target2 = null;
-                           // break;
-                        }*/
+                       
                     }
                 }
           
@@ -161,6 +146,7 @@ namespace PigeonSquare
             {
                 target.etat = false;
                 Console.WriteLine(this.nom + " a mangé");
+                App.env.notify();
             }
            
             

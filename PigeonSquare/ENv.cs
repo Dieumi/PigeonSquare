@@ -13,9 +13,9 @@ namespace PigeonSquare
         public static Random Hazard = new Random();
         public int DimensionX { get; set; }
         public int DimensionY { get; set; }
-        public int vitesse = 900; // vitesse d'exécution du thread
+        public int vitesse = 1200; // vitesse d'exécution du thread
         public int i = 0;
-        const int  HUMAIN_APPARITION = 20;//probabilité d'apparaition de l'humain en pourcentage %
+        const int  HUMAIN_APPARITION = 5;//probabilité d'apparaition de l'humain en pourcentage %
 
         public List<Pigeon> listp = new List<Pigeon>();
         public List<Nourriture> listn = new List<Nourriture>();
