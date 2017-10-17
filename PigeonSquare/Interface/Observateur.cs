@@ -9,5 +9,6 @@ namespace PigeonSquare.Interface
     interface Observateur
     {
         void maj(List<Nourriture> listn);
+
     }
 }

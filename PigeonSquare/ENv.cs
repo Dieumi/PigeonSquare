@@ -38,13 +38,18 @@ namespace PigeonSquare
             i++;
             Pigeon p1 = new Pigeon("p" + i);
             listp.Add(p1);
+            
+            while (true)
+            {
+                Thread.Sleep(App.env.vitesse);
+                p1.Avance1Tour(p1.X, p1.Y);
+                
+            }
+           
         }
         public void TourSuivant()
         {
-            foreach(Pigeon p in listp)
-            {
-                p.Avance1Tour(p.X, p.Y);
-            }
+            
 
             foreach(Human h in listh)
             {

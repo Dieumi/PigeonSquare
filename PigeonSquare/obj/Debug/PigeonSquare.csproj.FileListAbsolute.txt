@@ -1,0 +1,15 @@
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.exe.config
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.exe
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\bin\Debug\PigeonSquare.pdb
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csprojResolveAssemblyReference.cache
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\MainWindow.g.cs
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\App.g.cs
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare_MarkupCompile.cache
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare_MarkupCompile.lref
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\MainWindow.baml
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.g.resources
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.Properties.Resources.resources
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csproj.GenerateResource.Cache
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.csproj.CoreCompileInputs.cache
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.exe
+D:\DossierPierre\coursUQAC\POO\PigeonSquare\PigeonSquare\obj\Debug\PigeonSquare.pdb
